@@ -1,0 +1,16 @@
+<% content_for :title, @todo.title %>
+
+<div class="md:w-2/3 w-full mx-auto">
+
+<% if notice = flash[:notice] %>
+  <div class="text-center">
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="w-full justify-center">
+  <%= render "todo", todo:@todo %>
+  <%= link_to 'Back to Todos', todos_path, class: "btn btn-accent ml-175 mt-4" %>
+</div>
+
+</div>

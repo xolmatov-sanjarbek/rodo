@@ -1,0 +1,22 @@
+<div class="navbar bg-blue-900 shadow-sm">
+  <div class="flex-1">
+    <a class="btn btn-outline btn-info text-xl" href="/">Rodo</a>
+    <%= link_to "Login", new_session_path, class:"btn btn-primary ml-4" %>
+    <%= link_to "Logout", session_path, method: :destroy, class:"btn btn-warning ", data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <%= link_to "New Todo", new_todo_path, class:"btn btn-primary mr-2" %>
+      <li>
+        <details>
+          <summary class="text-xl">Filter</summary>
+          <ul class="bg-base-300 rounded-2xl p-1">
+            <li><%= link_to "Low Priority", low_path %></li>
+            <li><%= link_to "Medium Priority", medium_path %></li>
+            <li><%= link_to "High Priority", high_path %></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>

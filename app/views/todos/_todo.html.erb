@@ -1,0 +1,29 @@
+<% unless todo.done %>
+  <div class="card bg-yellow-200 text-primary-content mx-auto md:w-2/3 w-full">
+    <div class="card-body">
+      <h2 class="card-title"><%= todo.title %></h2>
+      <p><%= todo.body %></p>
+      <p><%= todo.priority %></p>
+      <div class="card-actions justify-end">
+        <%= button_to "Done", toggle_done_todo_path(todo), method: :patch, class:"btn btn-primary" %>
+        <%= link_to "Edit", edit_todo_path(todo), class: "btn btn-secondary" %>
+        <%= button_to "Destroy", todo, method: :delete, class: "btn btn-error", data: { turbo_confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="card bg-green-300 text-primary-content mx-auto md:w-2/3 w-full">
+    <div class="card-body">
+      <h2 class="card-title"><%= todo.title %></h2>
+      <p><%= todo.body %></p>
+      <strong>Priority: <%= todo.priority.humanize %></strong>
+      <div class="card-actions justify-end">
+        <% unless todo.done %>
+          <%= button_to "Done", toggle_done_todo_path(todo), method: :patch, class:"btn btn-primary" %>
+        <% end %>
+        <%= link_to "Edit", edit_todo_path(todo), class: "btn btn-secondary" %>
+        <%= button_to "Destroy", todo, method: :delete, class: "btn btn-error", data: { turbo_confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  </div>
+<% end %>

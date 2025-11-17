@@ -1,0 +1,3 @@
+<% @todos.each do |todo| %>
+  <%= render partial: "todos/todo", locals: { todo: todo } %>
+<% end %>
