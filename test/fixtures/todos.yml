@@ -5,11 +5,11 @@ one:
   body: MyText
   done: false
   priority: 1
-  user_id: one
+  user: one
 
 two:
   title: MyString
   body: MyText
   done: false
   priority: 1
-  user_id: one
+  user: one
